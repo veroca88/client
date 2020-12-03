@@ -2,6 +2,9 @@ import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+
+
 
 export default function composition() {
     return (
@@ -66,11 +69,22 @@ export default function composition() {
 </svg>
 
       </Col>
-    <Col md={{ span: 4, offset: 1 }}>Weather Chart App</Col>
+    <Col className="main_title" md={{ span: 8 }}>Weather Chart App</Col>
   </Row>
-  <Row>
-    <Col md={{ span: 3, offset: 3 }}>b</Col>
-    <Col md={{ span: 3, offset: 3 }}>c</Col>
+  <Row className="main_body">
+    <Col md={{ span: 8, offset: 2 }}>
+    <Form>
+    <Form.Row>
+    <Form.Label column lg>
+      Which location do you want to see?
+    </Form.Label>
+    <Col>
+      <Form.Control type="text" placeholder="Location" />
+    </Col>
+  </Form.Row>
+</Form>
+    </Col>
+    {/* <Col md={{ span: 3, offset: 3 }}>c</Col> */}
   </Row>
   <Row>
     <Col md={{ span: 6, offset: 3 }}>d</Col>
