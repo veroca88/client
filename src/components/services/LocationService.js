@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const baseURL = process.env.SERVER_POINT;
-const baseURL = 'http://localhost:8000'
+const baseURL = process.env.SERVER_POINT;
 
 const service = axios.create({
   baseURL,
