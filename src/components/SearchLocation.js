@@ -1,25 +1,31 @@
-import React from 'react'
-
+import React, {useState} from 'react'
 import { useForm } from 'react-hook-form'
-
 import LOCATION_SERVICE from './services/LocationService'
 
+
 export default function SearchLocation(props) {
-    const { handleSubmit, errors, register } = useForm({
-        defaultValues: {
-            location: ""
-        }
-    })
+  const { handleSubmit, errors, register } = useForm({
+    defaultValues: {
+      location: ""
+    }
+  })
+  const [response, setResponse] = useState({ data: [] });
 
     const searchData = (data, e) => {
-        LOCATION_SERVICE.message(data)
+        LOCATION_SERVICE.search(data)
         e.target.reset(e)
+    }
+    
+    const handleClick = async () => {
+      const message = await LOCATION_SERVICE.search(response)
+      console.log("message handle click", message)
+
     }
 
     return (
-        <form onSubmit={handleSubmit(searchData)}>
-          <label htmlFor="location">
-            location:
+        <form className="location_form" onSubmit={handleSubmit(searchData)}>
+          <label className="location" htmlFor="location">
+            Location: 
           </label>
           <input
             aria-invalid={errors.name ? "true" : "false"}
@@ -29,16 +35,7 @@ export default function SearchLocation(props) {
             ref={register({ required: true })}
             ></input>
           {errors.location && <span>This field is required</span>}
+          <button type='submit' onClick={handleClick}>Search</button>
           </form>
     )
 }
-            // <Form onSubmit={handleSubmit(searchData)}>
-            //     <Form.Row>
-            //         <Form.Label column lg>
-            //          Which location do you want to see?
-            //          </Form.Label>
-            //          <Col>
-            //          <Form.Control type="text" name="location" onChange={} placeholder="Location" />
-            //         </Col>
-            //     </Form.Row>
-            // </Form>
