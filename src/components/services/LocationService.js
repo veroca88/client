@@ -8,10 +8,13 @@ const service = axios.create({
 });
 
 const LOCATION_SERVICE = {
-    message(userInput) {
+    search(userInput) {
         console.log('LOCATION_SERVICE', userInput)
     return service.post("/", userInput)
   },
+    message(location) {
+    return service.get(`/${location}`)
+  }
 };
 
 export default LOCATION_SERVICE;
