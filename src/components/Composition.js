@@ -73,7 +73,7 @@ export default function Composition() {
     <Col className="main_title" md={{ span: 8 }}>Weather Chart App</Col>
   </Row>
   <Row className="main_body">
-    <Col md={{ span: 8, offset: 2 }}>
+    <Col md={{ span: 8}}>
       <SearchLocation />
     </Col>
     {/* <Col md={{ span: 3, offset: 3 }}>c</Col> */}
