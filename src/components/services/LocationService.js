@@ -12,9 +12,6 @@ const LOCATION_SERVICE = {
         console.log('LOCATION_SERVICE', userInput)
     return service.post("/", userInput)
   },
-    message(location) {
-    return service.get(`/${location}`)
-  }
 };
 
 export default LOCATION_SERVICE;
