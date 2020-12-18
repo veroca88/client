@@ -8,10 +8,30 @@
   color: rgb(129, 168, 184);
 }
 
+.input_location {
+  overflow: auto;
+}
 .main_title {
   font-family: "Nerko One", cursive;
   font-size: calc(1rem + 3.6vw);
 }
 .main_body {
   padding: 3vw 0.5vw 0.5vw;
+}
+
+.location {
+  padding-right: 2%;
+}
+
+.location_form {
+  padding: 5%;
+}
+
+.search_icon {
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.output_info {
+  padding-top: 3%;
 }
