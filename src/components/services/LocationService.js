@@ -9,8 +9,8 @@ const service = axios.create({
 
 const LOCATION_SERVICE = {
     search(userInput) {
-        console.log('LOCATION_SERVICE', userInput)
-    return service.post("/", userInput)
+      console.log('LOCATION_SERVICE', userInput)
+      return service.post("/", userInput)
   },
 };
 

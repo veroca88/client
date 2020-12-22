@@ -4,21 +4,23 @@ import LOCATION_SERVICE from './services/LocationService'
 
 
 export default function SearchLocation() {
-  const { handleSubmit, errors, register } = useForm({
+  const { handleSubmit, errors, register, reset } = useForm({
     defaultValues: {
       location: ""
     }
   })
-  const [response, setResponse] = useState({ data: [] });
+  
   const [loadMessage, setLoadMessage] = useState(false)
   const [weatherInfo, setWeatherInfo] = useState('Not info yet')
 
     
-    const handleClick = async() => {
-      const responseAPI = await LOCATION_SERVICE.search(response)
+    const handleClick = async(data) => {
+      const responseAPI = await LOCATION_SERVICE.search(data)
       setLoadMessage(true)
       setWeatherInfo(responseAPI.data)
-      console.log(weatherInfo)
+      console.log(responseAPI)
+      reset(weatherInfo)
+      
       }
 
     return (
@@ -32,8 +34,7 @@ export default function SearchLocation() {
           name="location"
           type="text"
           placeholder=" Location"
-          ref={register({ required: true })}
-          required
+          ref={register({required: true})}
           ></input>
             <div>
           {errors.location && <span>This field is required</span>}
